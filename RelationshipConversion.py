@@ -20,9 +20,11 @@ def similarity2distance(df: pd.DataFrame):
     mini = df.min().min()
     maxi = df.max().max()
 
-    # do the formula as described in Weber, Lucas, and Richard Lenz.
+    # do the formula as described in
+    # Lucas Weber and Richard Lenz
     # "Relationship Discovery for Heterogeneous Time Series Integration: A Comparative Analysis for Industrial
-    # and Building Data." Datenbanksysteme für Business, Technologie und Web (BTW 2025).
+    # and Building Data."
+    # Datenbanksysteme für Business, Technologie und Web (BTW 2025).
     # Gesellschaft für Informatik, Bonn, 2025.
     df = np.exp(-(df - mini) / (maxi - mini))
     return df
@@ -30,13 +32,18 @@ def similarity2distance(df: pd.DataFrame):
 
 def transform_conditional_entropy(df: pd.DataFrame):
     """
-    Conditional entropy is a distance (the more entropy there is, the less related signals are).
+    Conditional entropy is a pseudo-distance (the more entropy there is, the less related signals are).
     But it is not symmetric, therefore we need a transformation.
+
+    Additionally, the minimal value is not zero but negative infinity (pseudo-distance).
+    Therefore, we have to make the values positive.
+
     :param df: the dataframe containing the distance/similarity values
     :return: the dataframe containing the transformed values that correspond to the notion of a distance
     (large values -> unrelated signals)
     """
     df = symmetrize_dataframe(df)
+    df = df.abs().max().max() + df
     return df
 
 
