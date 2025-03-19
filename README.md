@@ -47,4 +47,5 @@ after you copied the csv files (see previous step) - `python RelationshipConvers
 
 As the reordering algorithms require some time, we implemented a distributed evaluation over multiple processor cores.
 Run the script [DeployCalculations.py](./DeployCalculations.py) with the following options to reproduce the paper
-results `python DeployCalculations.py -mt 180 -rs 50` to reproduce the paper results.
+results `python DeployCalculations.py -mt 180 -rs 50` to reproduce the paper results (Timeout per reordering 180s and
+50 random reorderings of the ground truth).
