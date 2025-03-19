@@ -7,7 +7,6 @@ import subprocess
 import multiprocessing as mp
 import argparse
 import functools
-from os.path import basename
 import math
 
 from tqdm import tqdm
