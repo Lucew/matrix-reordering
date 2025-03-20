@@ -188,3 +188,6 @@ fabric.properties
 # folders starting with csv_
 csv_*/
 test/
+
+# exclude the plot files
+*.pgf
