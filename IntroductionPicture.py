@@ -6,7 +6,7 @@ import seaborn as sns
 import matplotlib
 import matplotlib.patches
 
-SAVE = False
+SAVE = True
 
 # use pgf backed
 if SAVE:
@@ -16,6 +16,7 @@ if SAVE:
         'font.family': 'serif',
         'text.usetex': True,
         'pgf.rcfonts': False,
+        'font.size': 22,
     })
 
 
@@ -72,7 +73,7 @@ arrow = matplotlib.patches.ConnectionPatch(
     linewidth=3,
 )
 fig.patches.append(arrow)
-fig.text(0.5, 0.5, 'Reordering', size=40, horizontalalignment='center', verticalalignment='bottom')
+fig.text(0.5, 0.5, 'Reordering', size=60, horizontalalignment='center', verticalalignment='bottom')
 
 # change the ax layout
 for ax in axes:
