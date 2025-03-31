@@ -92,6 +92,7 @@ def plot_matrix_reordering(save_figure=False):
             'font.family': 'serif',
             'text.usetex': True,
             'pgf.rcfonts': False,
+            'font.size': 12,
         })
 
     # make a seaborn bar plot
